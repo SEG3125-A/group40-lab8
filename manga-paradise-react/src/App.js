@@ -2,13 +2,16 @@ import React, { useState, useEffect } from "react";
 import SearchBar from "./SearchBar";
 import MangaDisplay from "./MangaDisplay";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("popularity");
   const [mangas, setMangas] = useState([
-    { id: 1, title: "Hunter x Hunter", cover: "/HxH.jpg" },
-    { id: 2, title: "One Piece", cover: "/onePieceCover.jpg" },
+    { id: 1, title: "Hunter x Hunter", cover: "/HxH.jpg", year: 2003 },
+    { id: 2, title: "One Piece", cover: "/onePieceCover.jpg", year: 1997 },
+    { id: 2, title: "Bleach", cover: "/bleach.jpeg", year: 2000 },
+    { id: 1, title: "Dragon ball", cover: "/Dragon Ball.jpeg", year: 1990 },
   ]);
   const [filteredMangas, setFilteredMangas] = useState(mangas);
 
@@ -27,19 +30,34 @@ const App = () => {
   const handleSearchSubmit = () => {};
 
   const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+    const value = event.target.value;
+    setCategory(value);
+
+    if (value === "publish_date") {
+      // Sort by publish date
+      setFilteredMangas([...mangas].sort((a, b) => b.year - a.year));
+    } else if (value === "genre") {
+      setFilteredMangas(
+        [...mangas].sort((a, b) => b.popularity - a.popularity)
+      );
+    }
   };
 
   return (
     <div className="App">
-      <SearchBar
-        onSearchChange={handleSearchChange}
-        onCategoryChange={handleCategoryChange}
-        onSearchSubmit={handleSearchSubmit}
-        searchTerm={searchTerm}
-        category={category}
-      />
-      <MangaDisplay mangas={filteredMangas} />
+      <header className="text-center bg-dark text-white py-3">
+        <h1>MANGA PARADISE</h1>
+      </header>
+      <div className="container mt-4">
+        <SearchBar
+          onSearchChange={handleSearchChange}
+          onCategoryChange={handleCategoryChange}
+          onSearchSubmit={handleSearchSubmit}
+          searchTerm={searchTerm}
+          category={category}
+        />
+        <MangaDisplay mangas={filteredMangas} />
+      </div>
     </div>
   );
 };

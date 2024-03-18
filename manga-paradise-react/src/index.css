@@ -34,7 +34,7 @@
   background: white;
   position: absolute;
   z-index: 1000;
-  width: 300px; /* Adjust the width according to your search bar width */
+  width: 300px;
   border: 1px solid #ddd;
   border-top: none;
 }
