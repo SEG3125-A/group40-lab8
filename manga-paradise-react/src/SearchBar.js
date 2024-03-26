@@ -32,7 +32,6 @@ const SearchBar = ({
         >
           <option value="popularity">Popularity</option>
           <option value="publish_date">Publish Date</option>
-          <option value="genre">Genre</option>
         </select>
       </div>
     </div>

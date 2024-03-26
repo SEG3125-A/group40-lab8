@@ -8,15 +8,85 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("popularity");
   const [mangas, setMangas] = useState([
-    { id: 1, title: "Hunter x Hunter", cover: "/HxH.jpg", year: 1998 },
-    { id: 2, title: "One Piece", cover: "/onePieceCover.jpg", year: 1997 },
-    { id: 2, title: "Bleach", cover: "/bleach.jpeg", year: 2001 },
-    { id: 1, title: "Dragon ball", cover: "/Dragon Ball.jpeg", year: 1984 },
-    { id: 1, title: "Demon Slayer", cover: "/demonSlayer.jpeg", year: 2016 },
-    { id: 1, title: "Death Note", cover: "/deathNote.jpg", year: 2003 },
-    { id: 1, title: "Attack on Titan", cover: "/aot.jpg", year: 2009 },
-    { id: 1, title: "Monster", cover: "/monster.jpeg", year: 1994 },
+    {
+      id: 1,
+      title: "Hunter x Hunter",
+      cover: "/HxH.jpg",
+      year: 1998,
+      author: "Yoshihiro Togashi",
+      synopsis: "Synopsis: A young boy's quest to become a legendary hunter.",
+      rating: 4.5,
+    },
+    {
+      id: 2,
+      title: "One Piece",
+      cover: "/onePieceCover.jpg",
+      year: 1997,
+      author: "Eiichiro Oda",
+      synopsis:
+        "Synopsis: A rubbery pirate's adventure for the ultimate treasure.",
+      rating: 4.8,
+    },
+    {
+      id: 3,
+      title: "Bleach",
+      cover: "/bleach.jpeg",
+      year: 2001,
+      author: "Tite Kubo",
+      synopsis:
+        "Synopsis: A teenager who can see ghosts becomes a Soul Reaper.",
+      rating: 4.3,
+    },
+    {
+      id: 4,
+      title: "Dragon Ball",
+      cover: "/Dragon Ball.jpeg",
+      year: 1984,
+      author: "Akira Toriyama",
+      synopsis:
+        "Synopsis: A martial artist's quest to gather the Dragon Balls.",
+      rating: 4.7,
+    },
+    {
+      id: 5,
+      title: "Demon Slayer",
+      cover: "/demonSlayer.jpeg",
+      year: 2016,
+      author: "Koyoharu Gotōge",
+      synopsis: "Synopsis: A boy's vow to turn his sister back into a human.",
+      rating: 4.9,
+    },
+    {
+      id: 6,
+      title: "Death Note",
+      cover: "/deathNote.jpg",
+      year: 2003,
+      author: "Tsugumi Ohba",
+      synopsis:
+        "Synopsis: A high school student discovers a notebook with deadly powers.",
+      rating: 5.0,
+    },
+    {
+      id: 7,
+      title: "Attack on Titan",
+      cover: "/aot.jpg",
+      year: 2009,
+      author: "Hajime Isayama",
+      synopsis: "Synopsis: Humans fight for survival against towering titans.",
+      rating: 4.6,
+    },
+    {
+      id: 8,
+      title: "Monster",
+      cover: "/monster.jpeg",
+      year: 1994,
+      author: "Naoki Urasawa",
+      synopsis:
+        "Synopsis: A doctor's search for redemption leads him to a nefarious discovery.",
+      rating: 4.7,
+    },
   ]);
+
   const [filteredMangas, setFilteredMangas] = useState(mangas);
 
   useEffect(() => {
@@ -52,6 +122,7 @@ const App = () => {
       <header className="text-center bg-dark text-white py-3">
         <h1>MANGA PARADISE</h1>
       </header>
+
       <div className="container mt-4">
         <SearchBar
           onSearchChange={handleSearchChange}
