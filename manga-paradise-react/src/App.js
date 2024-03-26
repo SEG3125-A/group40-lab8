@@ -8,10 +8,14 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [category, setCategory] = useState("popularity");
   const [mangas, setMangas] = useState([
-    { id: 1, title: "Hunter x Hunter", cover: "/HxH.jpg", year: 2003 },
+    { id: 1, title: "Hunter x Hunter", cover: "/HxH.jpg", year: 1998 },
     { id: 2, title: "One Piece", cover: "/onePieceCover.jpg", year: 1997 },
-    { id: 2, title: "Bleach", cover: "/bleach.jpeg", year: 2000 },
-    { id: 1, title: "Dragon ball", cover: "/Dragon Ball.jpeg", year: 1990 },
+    { id: 2, title: "Bleach", cover: "/bleach.jpeg", year: 2001 },
+    { id: 1, title: "Dragon ball", cover: "/Dragon Ball.jpeg", year: 1984 },
+    { id: 1, title: "Demon Slayer", cover: "/demonSlayer.jpeg", year: 2016 },
+    { id: 1, title: "Death Note", cover: "/deathNote.jpg", year: 2003 },
+    { id: 1, title: "Attack on Titan", cover: "/aot.jpg", year: 2009 },
+    { id: 1, title: "Monster", cover: "/monster.jpeg", year: 1994 },
   ]);
   const [filteredMangas, setFilteredMangas] = useState(mangas);
 
